@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    transition: 0.5s;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+header, .slide, .slide ul,.slide ul li, .oneSlide{
+    width: 100%;
+    height: 100%;
+}
+header{
+    position: relative;
+}
+.nutchuyen{
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+}
+.nutchuyen ul li{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid wheat;
+    margin: 10px;
+    cursor: pointer;
+    
+    
+}
+.nutchuyen ul li:hover, .nutchuyen ul li.active{
+    background-color: rgba(183, 180, 180, 0.82);
+}
+
+.slide ul{
+    position: relative;
+}
+.slide ul li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.slide li.active{
+    opacity: 1;
+}
+.oneSlide{
+    position: relative; /*đối tượng cha*/
+    overflow: hidden; /* ẩn khi nội dung vượt ra khỏi đối tượng cha*/
+}
+.hinh{
+    width: 100vw;
+    height: 100vh;
+    
+}
+.tgtren{
+    position: absolute; /* đối tượng con*/
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+.slide ul li.active .tgtren{
+    animation: hientgtren 0.7s forwards;
+}
+@keyframes hientgtren{
+    from{transform: translateX(100%) translateY(-100%); opacity: 0;}
+    to{transform: translateX(0) translateY(0); opacity: 0.6;}
+}
+.tgduoi1{
+    position: absolute;
+    top: -30%;
+    left: 0;
+    opacity: 0;
+}
+.slide ul li.active .tgduoi1{
+    animation: hientgduoi1 0.7s forwards;
+    animation-delay: 0.3s;
+}
+@keyframes hientgduoi1{
+    from{transform: translateX(-100%) translateY(100%); opacity: 0;}
+    to{transform: translateX(0) translateY(0); opacity: 0.6;}
+}
+.tgduoi2{
+    position: absolute;
+    top: -10%;
+    left: 0;
+    opacity: 0;
+}
+.slide ul li.active .tgduoi2{
+    animation: hientgduoi2 0.7s forwards;
+    animation-delay: 0.5s;
+}
+@keyframes hientgduoi2{
+    from{transform: translateX(-100%) translateY(100%); opacity: 0;}
+    to{transform: translateX(0) translateY(0); opacity: 0.6;}
+}
+.oneSlide .noidung{
+    position: absolute;
+    width: 20%;
+    left: 10%;
+    z-index: 3;
+    opacity: 1;
+    top: 46%;
+    color: wheat;
+    transition: 0.6s;
+    opacity: 0;
+}
+.slide small{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 10px 0;
+    display: block;
+    text-decoration: underline;
+}
+.slide h2{
+    font-size: 80px;
+    font-weight: normal;
+}
+ul li.active .noidung h2,
+ul li.active .noidung small,
+ul li.active .noidung p,
+ul li.active .noidung .nut{
+    opacity: 0;
+    animation: hiennd 3s forwards;
+}
+.noidung .nut{
+    border: 1px solid white;
+    width: 55%;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 25px;
+}
+.slide ul li.active .noidung{
+    animation: hiennd 0.7s forwards;
+    animation-delay: 0.7s;
+}
+@keyframes hiennd{
+    from{transform: translateX(-30%); opacity: 0;}
+    to{transform: translateX(0); opacity: 1;}
+}
